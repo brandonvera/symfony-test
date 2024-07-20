@@ -12,3 +12,15 @@ App\Entity\User:
         groups: [user_register]
       openapi_context:
         summary: Register a new user
+  
+  itemOperations:
+    getuser:
+      method: GET
+      path: /user/{id}
+      controller: App\Controller\Action\User\GetUser
+    updateuser:
+      method: PUT
+      path: /user/{id}
+      controller: App\Controller\Action\User\UpdateUser
+      denormalization_context:
+        groups: [user_update]

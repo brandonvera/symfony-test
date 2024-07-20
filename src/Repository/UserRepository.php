@@ -36,4 +36,20 @@ class UserRepository extends BaseRepository
     {
         $this->saveEntity($user);
     }
+
+    public function updateUser($userId, $name): ?User
+    {
+        //buscando usuario por id
+        $user = $this->objectRepository->find($userId);
+
+        if (!$user) {
+            throw new \Exception('User not found');
+        }
+        //seteando nombre
+        $user->setName($name);
+        //lamando al entity manager de baseRepository
+        $this->getEntityManager();
+
+        return $user;
+    }
 }
