@@ -37,7 +37,7 @@ class UserRepository extends BaseRepository
         $this->saveEntity($user);
     }
 
-    public function updateUser($userId, $name): ?User
+    public function updateUser($userId, $name, $email, $newPassword): ?User
     {
         //buscando usuario por id
         $user = $this->objectRepository->find($userId);
@@ -45,8 +45,11 @@ class UserRepository extends BaseRepository
         if (!$user) {
             throw new \Exception('User not found');
         }
-        //seteando nombre
-        $user->setName($name);
+
+        $user->setEmail($email, $user->getId());
+        $user->setName($name);       
+        $user->setPassword($newPassword);
+
         //lamando al entity manager de baseRepository
         $this->getEntityManager();
 

@@ -32,6 +32,9 @@ class UpdateUser
         //llamando al servicio de update
         return $this->userUpdateDataService->updateData(
             RequestService::getField($request, 'name'),
+            RequestService::getField($request, 'email'),
+            RequestService::getField($request, 'current_password'),
+            RequestService::getField($request, 'new_password'),
             $currentUser
         );
     }
