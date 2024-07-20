@@ -26,7 +26,7 @@ final class Version20200727114319 extends AbstractMigration
                 updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
                 INDEX IDX_email (email),
                 CONSTRAINT U_email UNIQUE KEY (email)
-            )
+            ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB
         ');
     }
 
