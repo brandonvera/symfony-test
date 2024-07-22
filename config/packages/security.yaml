@@ -24,6 +24,11 @@ security:
             methods: [POST]
             security: false
 
+        docs:
+            pattern: ^/api/docs
+            methods: [GET]
+            security: false
+
         api:
             pattern: ^/api
             stateless: true

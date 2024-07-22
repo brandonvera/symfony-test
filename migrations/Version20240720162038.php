@@ -20,7 +20,7 @@ final class Version20240720162038 extends AbstractMigration
     public function up(Schema $schema): void
     {
         $this->addSql('
-            CREATE TABLE `Content` (
+            CREATE TABLE `content` (
                 id CHAR(36) PRIMARY KEY,
                 user_id CHAR(36),
                 type VARCHAR(255),

@@ -1,0 +1,22 @@
+App\Entity\Content:
+  attributes:
+    id:
+      groups: [content_read]
+    user_id:
+      groups: [content_read, content_register]
+    type:
+      groups: [content_read, content_register, content_update]
+    title:
+      groups: [content_read, content_register, content_update]
+    description:
+      groups: [content_read, content_register, content_update]
+    file_name:
+      groups: [content_read, content_register, content_update]
+    file_path:
+      groups: [content_read, content_register, content_update]
+    mime_type:
+      groups: [content_read, content_register, content_update]
+    created_at:
+      groups: [content_read]
+    updated_at:
+      groups: [content_read]

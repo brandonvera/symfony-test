@@ -26,14 +26,9 @@ class Content
         $this->markAsUpdated();
     }
 
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
-    }
-
-    public function setId($id)
-    {
-        $this->id = $id;
     }
 
     public function getUserId()

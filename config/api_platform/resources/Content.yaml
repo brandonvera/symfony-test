@@ -1,0 +1,36 @@
+App\Entity\Content:
+  attributes:
+    normalization_context:
+      groups: [content_read]
+
+  collectionOperations:
+    createcontent:
+      method: POST
+      path: /content
+      controller: App\Controller\Action\Content\Create
+      denormalization_context:
+        groups: [content_register]
+      deserialize: false
+
+    getallcontent:
+      method: GET
+      path: /content
+      controller: App\Controller\Action\Content\GetAllContent
+
+  itemOperations: 
+    getcontent:
+      method: GET
+      path: /content/{id}
+      controller: App\Controller\Action\Content\GetOneContent
+
+    updatecontent:
+      method: PUT
+      path: /content/{id}
+      controller: App\Controller\Action\Content\UpdateContent
+      denormalization_context:
+        groups: [content_update]
+
+    deletecontent:
+      method: DELETE
+      path: /content/{id}
+      controller: App\Controller\Action\Content\DeleteContent
