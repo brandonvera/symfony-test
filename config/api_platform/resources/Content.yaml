@@ -29,6 +29,7 @@ App\Entity\Content:
       controller: App\Controller\Action\Content\UpdateContent
       denormalization_context:
         groups: [content_update]
+      deserialize: false
 
     deletecontent:
       method: DELETE
