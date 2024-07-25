@@ -72,4 +72,55 @@ class ContentRepository extends BaseRepository
 
         return $content;
     }
+
+    public function getAllContent($title, $description, $user): Array
+    {
+        $contentRepository = $this->getEntityManager()->getRepository(Content::class);
+
+        $criteria = [];
+
+        if ($user) {
+            $criteria[] = 'o.user_id = :userId';
+        }
+
+        if ($title && $title != "") {
+            $criteria[] = 'o.title LIKE :title';
+        }
+
+        if ($description && $description != "") {
+            $criteria[] = 'o.description LIKE :description';
+        }
+
+        $queryBuilder = $contentRepository->createQueryBuilder('o');
+        $query = $queryBuilder
+            ->where(implode(' AND ', $criteria));
+
+        if ($user) {
+            $queryBuilder->setParameter('userId', $user->getId());
+        }
+
+        if ($title && $title!= "") {
+            $queryBuilder->setParameter('title', '%'.$title.'%');
+        }
+
+        if ($description && $description!= "") {
+            $queryBuilder->setParameter('description', '%'.$description.'%');
+        }
+
+        $query = $queryBuilder->getQuery();
+
+        $content = $query->getResult();
+        return $content;
+    }
+
+    public function getOneContent($contentId): Content 
+    {
+        $content = $this->objectRepository->find($contentId);
+        return $content;   
+    }
+
+    public function deleteContent($content)
+    {
+        return $this->removeEntity($content);
+    }
 }

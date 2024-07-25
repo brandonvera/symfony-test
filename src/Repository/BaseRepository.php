@@ -50,4 +50,14 @@ abstract class BaseRepository
 
         return $this->managerRegistry->resetManager();
     }
+
+    /**
+     * @throws ORMException
+     * @throws OptimisticLockException
+     */
+    public function removeEntity(object $entity)
+    {
+        $this->getEntityManager()->remove($entity);
+        $this->getEntityManager()->flush();
+    }
 }
