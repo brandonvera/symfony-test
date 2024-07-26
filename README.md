@@ -72,4 +72,14 @@ Se creo una api rest con algunos endpoints de los solicitados, ya que por tiempo
             description (string)
             file (archivo)
 
+    ### 2. `GET /api/content` - Obtener todo el contenido del user. necesita bearer token jwt payload: 
+            {
+                 "title":"",
+                "description":""
+            }
+
+    ### 2. `GET /api/content/{id}` - Obtener contenido por id. necesita bearer token jwt
+
+    ### 2. `DELETE /api/content/{id}` - Eliminar contenido por id. necesita bearer token jwt
+    
 Para los endpoints de usuario se les agrego al final el id del usuario para poder conseguir acceder al usuario.
