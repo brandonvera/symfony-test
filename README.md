@@ -81,5 +81,7 @@ Se creo una api rest con algunos endpoints de los solicitados, ya que por tiempo
     ### 2. `GET /api/content/{id}` - Obtener contenido por id. necesita bearer token jwt
 
     ### 2. `DELETE /api/content/{id}` - Eliminar contenido por id. necesita bearer token jwt
-    
+
 Para los endpoints de usuario se les agrego al final el id del usuario para poder conseguir acceder al usuario.
+
+Se agregaron las demás tablas para la lógica de rankear un contenido y agregarlo a favoritos. Por cuestión de una mala estimación de tiempo de mi parte, no logré terminar la lógica para los endpoints. Sin embargo, se entrega un proyecto profesional a mi parecer, con buenas prácticas de programación para la construcción de una API REST con Symfony.
