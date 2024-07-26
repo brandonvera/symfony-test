@@ -18,6 +18,8 @@ class Content
     private $mime_type;
     private $created_at;
     private $updated_at;
+    private $ratings;
+    private $favorites;
 
     public function __construct()
     {
@@ -124,6 +126,26 @@ class Content
     public function markAsUpdated(): void
     {
         $this->updated_at = new \DateTime();
+    }
+
+    public function getRatings()
+    {
+        return $this->ratings;
+    }
+
+    public function setRatings($ratings)
+    {
+        $this->ratings = $ratings;
+    }
+
+    public function getFavorites()
+    {
+        return $this->favorites;
+    }
+
+    public function setFavorites($favorites)
+    {
+        $this->favorites = $favorites;
     }
 
 }

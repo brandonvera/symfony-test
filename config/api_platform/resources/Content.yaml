@@ -17,6 +17,11 @@ App\Entity\Content:
       path: /content
       controller: App\Controller\Action\Content\GetAllContent
 
+    favorites:
+      method: 'GET'
+      path: '/api/content/favorites'
+      controller: App\Controller\Action\Content\GetFavoritesContent
+
   itemOperations: 
     getcontent:
       method: GET
@@ -35,3 +40,19 @@ App\Entity\Content:
       method: DELETE
       path: /content/{id}
       controller: App\Controller\Action\Content\DeleteContent
+
+    rate:
+      method: 'POST'
+      path: '/api/content/{id}/rate'
+      controller: App\Controller\Action\Content\RateContent
+      denormalization_context:
+        groups: [content_register]
+      deserialize: false
+
+    favorite:
+      method: 'POST'
+      path: '/api/content/{id}/favorite'
+      controller: App\Controller\Action\Content\MarkFavoriteContent
+      denormalization_context:
+        groups: [content_register]
+      deserialize: false

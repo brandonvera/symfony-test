@@ -20,6 +20,9 @@
         <field name="created_at" type="datetime"/>
         <field name="updated_at" type="datetime"/>
 
+        <one-to-many field="ratings" target-entity="App\Entity\Rating" mapped-by="content" nullable="true"/>
+        <one-to-many field="favorites" target-entity="App\Entity\Favorite" mapped-by="content" nullable="true"/>
+
         <lifecycle-callbacks>
             <lifecycle-callback type="preUpdate" method="markAsUpdated"/>
         </lifecycle-callbacks>

@@ -20,3 +20,7 @@ App\Entity\Content:
       groups: [content_read]
     updated_at:
       groups: [content_read]
+    ratings:
+      groups: []
+    favorites:
+      groups: []
